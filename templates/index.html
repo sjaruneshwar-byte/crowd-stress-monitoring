@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crowd Stress Monitoring</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">CS</div>
+    <div>
+      <h1>Crowd Monitoring</h1>
+      <p>Congestion-risk analysis prototype</p>
+    </div>
+    <span class="status-pill"><span class="dot"></span> Local demo</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">MONITORING OVERVIEW</p>
+        <h2>Understand crowd conditions</h2>
+        <p class="muted">Upload a video to estimate detected people per sampled frame and review congestion-risk indicators.</p>
+      </div>
+    </section>
+
+    <section class="panel upload-panel">
+      <div class="section-heading">
+        <div>
+          <h3>Analyse a crowd video</h3>
+          <p class="muted small">Supported formats: MP4, AVI, MOV, MKV · Maximum size: 100 MB</p>
+        </div>
+        <span class="step">01 / INPUT</span>
+      </div>
+      <form id="upload-form">
+        <label class="drop-zone" for="video-input">
+          <span class="upload-icon">↑</span>
+          <strong id="file-label">Choose a video file</strong>
+          <span class="muted small">Select a file from your device</span>
+          <input id="video-input" name="video" type="file" accept=".mp4,.avi,.mov,.mkv,video/*" required>
+        </label>
+        <div class="form-actions">
+          <p class="muted small">Video is processed locally by this prototype and the temporary upload is deleted after analysis.</p>
+          <button id="analyze-button" type="submit">Analyse video <span>→</span></button>
+        </div>
+      </form>
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="metrics-grid" aria-label="Latest analysis metrics">
+      <article class="metric-card">
+        <span class="metric-label">Average detected people</span>
+        <strong id="average-count">—</strong>
+        <span class="metric-foot">Per sampled frame</span>
+      </article>
+      <article class="metric-card">
+        <span class="metric-label">Peak detected people</span>
+        <strong id="peak-count">—</strong>
+        <span class="metric-foot">Highest sampled count</span>
+      </article>
+      <article class="metric-card">
+        <span class="metric-label">Congestion-risk level</span>
+        <strong id="risk-level" class="risk-neutral">—</strong>
+        <span class="metric-foot">Based on demo thresholds</span>
+      </article>
+      <article class="metric-card">
+        <span class="metric-label">Video duration</span>
+        <strong id="duration">—</strong>
+        <span class="metric-foot">Minutes : seconds</span>
+      </article>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="section-heading">
+        <div>
+          <h3>Detected people over time</h3>
+          <p class="muted small">Approximate count from sampled frames</p>
+        </div>
+        <span class="step">02 / ANALYSIS</span>
+      </div>
+      <div class="chart-wrap"><canvas id="timeline-chart" height="120" aria-label="People detected over time chart"></canvas></div>
+      <p id="analysis-notice" class="notice">Run a video analysis to display the timeline.</p>
+    </section>
+
+    <section class="panel history-panel">
+      <div class="section-heading">
+        <div>
+          <h3>Recent monitoring history</h3>
+          <p class="muted small">Latest saved analyses</p>
+        </div>
+        <button id="refresh-history" class="secondary-button" type="button">Refresh ↻</button>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Video</th><th>Date (UTC)</th><th>Average</th><th>Peak</th><th>Risk</th></tr></thead>
+          <tbody id="history-body"><tr><td colspan="5" class="empty">No analyses yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="disclaimer"><strong>Prototype limitation:</strong> This tool estimates visible people counts. It does not measure internal emotional or psychological stress, identify individuals, or provide certified crowd-safety advice. Detection may miss or double-count people, especially in dense or obstructed scenes. Thresholds are illustrative and must not be used for real-world emergency decisions.</p>
+  </main>
+  <footer>Software Engineering Project · Crowd Monitoring Prototype</footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
