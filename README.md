@@ -141,3 +141,7 @@ Capture screenshots of the repository, commits, branches, Issue, pull request/me
 ## Dashboard
 
 The project provides a dashboard for monitoring crowd conditions.
+
+## Team Members
+
+This project is developed as a Software Engineering collaborative project.
