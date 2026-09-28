@@ -137,3 +137,7 @@ Capture screenshots of the repository, commits, branches, Issue, pull request/me
 - Add user authentication and role-based access if required.
 - Add exportable reports and configurable monitoring thresholds.
 - Validate any risk interpretation with domain experts before real-world use.
+
+## Dashboard
+
+The project provides a dashboard for monitoring crowd conditions.
