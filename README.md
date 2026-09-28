@@ -4,6 +4,10 @@ A Software Engineering project prototype for video-based crowd monitoring. The a
 
 > **Scope and safety:** This prototype estimates visible people counts as a congestion-related indicator. It does not directly measure psychological stress, infer emotions, identify people, or provide certified crowd-safety advice. Demo thresholds are illustrative and are not validated safety limits.
 
+## Dashboard Features
+
+The dashboard allows users to upload crowd videos and view
+crowd count, risk level, analysis duration, and analysis history.
 ## Features
 
 - Upload MP4, AVI, MOV, or MKV video (up to 100 MB).
