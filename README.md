@@ -10,7 +10,7 @@ The dashboard allows users to upload crowd videos and view
 crowd count, risk level, analysis duration, and analysis history.
 ## Features
 
-- Upload MP4, AVI, MOV, or MKV video (up to 100 MB).
+- Upload MP4, AVI, MOV, or MKV video (up to 100 MB size)
 - Sample video frames and detect pedestrians with OpenCV HOG.
 - Show average and peak detected people per sampled frame.
 - Assign Low, Moderate, or High congestion-risk labels using configurable demo thresholds.
